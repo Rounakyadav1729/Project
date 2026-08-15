@@ -1,58 +1,135 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>rockPaperScissorGame</title>
-    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Cursive:wght@400..700&family=Michroma&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" -->
-        rel="stylesheet">
-    <link rel="stylesheet" href="src.css">
-    <link rel="stylesheet" href="media-q.css">
+    <title>PDF Preview</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            min-height: 100vh;
+        }
+
+        .header {
+            height: 70px;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .title {
+            font-size: 22px;
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            text-decoration: none;
+            padding: 10px 16px;
+            border-radius: 8px;
+            background: #2563eb;
+            color: white;
+            font-size: 14px;
+            transition: 0.2s;
+        }
+
+        .btn:hover {
+            background: #1d4ed8;
+        }
+
+        .viewer-container {
+            width: 95%;
+            max-width: 1200px;
+            height: calc(100vh - 100px);
+            margin: 15px auto;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.12);
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        @media (max-width: 600px) {
+            .header {
+                height: auto;
+                padding: 15px;
+                gap: 10px;
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .title {
+                text-align: center;
+                font-size: 18px;
+            }
+
+            .buttons {
+                justify-content: center;
+            }
+
+            .btn {
+                flex: 1;
+                text-align: center;
+                padding: 9px;
+            }
+
+            .viewer-container {
+                width: 96%;
+                height: calc(100vh - 130px);
+                margin: 10px auto;
+                border-radius: 8px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <div class="container">
-        <h1>Rock, Paper, Scissors</h1>
 
-        <div class="scoreboard">
-            <p>Computer: <span class="computer-score">0</span></p>
-            <p>You: <span class="user-score">0</span></p>
+    <div class="header">
+        <div class="title">
+            📄 PDF Preview
         </div>
 
-        <div class="choice">
-            <div class="computer-choice">
-                <p>Computer's Choice:</p>
-                <button class="choice-btn computer-choice-btn">❓</button>
-            </div>
-            <div class="user-choice">
-                <p>Select your move:</p>
-                <div class="user-btn">
-                    <button class="choice-btn user-choice-btn" id="rock">✊🏼</button>
-                    <button class="choice-btn user-choice-btn" id="paper">✋🏼</button>
-                    <button class="choice-btn user-choice-btn" id="scissors">✌🏼</button>
-                </div>
-            </div>
-        </div>
+        <div class="buttons">
+            <a href="document.pdf" target="_blank" class="btn">
+                Open
+            </a>
 
-        <div class="result">
-            Select your move to start the game!
+            <a href="document.pdf" download class="btn">
+                Download
+            </a>
         </div>
-
     </div>
 
-    <script src="rep.js"></script>
+    <div class="viewer-container">
+        <iframe src="document.pdf"></iframe>
+    </div>
 
 </body>
-
-
 </html>
 
 
